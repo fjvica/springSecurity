@@ -1,3 +1,7 @@
 spring:
-  application:
-    name: demo
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-q4h3r1oxikgie2h8.us.auth0.com/ # Termina siempre en /
+          audience: https://api.misitio.com        # El Identifier de Auth0
