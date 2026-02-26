@@ -1,7 +1,30 @@
 spring:
+  datasource:
+    url: jdbc:h2:file:./data/mibase
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ""
+  # Estas secciones deben colgar directamente de 'spring', no de 'datasource'
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
   security:
     oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: https://dev-q4h3r1oxikgie2h8.us.auth0.com/ # Termina siempre en /
-          audience: https://api.misitio.com        # El Identifier de Auth0
+      client:
+        registration:
+          auth0:
+            client-id: wOu2Y5n6vMWBsM6Gw6SUTJlO0YwiHoBa
+            client-secret: vOdurog-Clr8fwFXmPA0jgngtIS4d3VI1rtNp3Pnc2LALsMoGCz8eIvwm_-7qFNt
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          auth0:
+            issuer-uri: https://dev-q4h3r1oxikgie2h8.us.auth0.com/

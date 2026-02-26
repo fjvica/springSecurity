@@ -1,3 +1,13 @@
 package com.example.demo.dto;
 
-public record Documento(int id, String contenido, String owner) {}
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class Documento {
+    private int id;
+    private String contenido;
+    private String owner; // Aquí guardaremos el 'sub' de Auth0
+}
